@@ -24,7 +24,6 @@ namespace DEMOclicker
         {
             // Initialize the Firebase Admin SDK
             FirebaseApp.Create();
-            Services.AddMvc();
         }
 
         private void key1_TextChanged(object sender, EventArgs e)
