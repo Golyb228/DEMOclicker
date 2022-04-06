@@ -13,13 +13,17 @@ namespace DEMOclicker
 {
     public partial class Form1 : Form
     {
-        readonly bool NOlimit = true;
-        readonly string MacAddress = DemClkFun.GetMacAddress();
-
+        public static bool NOlimit = false;
+        private static bool Act = false;
         public Form1()
         {
             InitializeComponent();
-            NOlimit = DemClkFun.DEMOcounter();
+            //FB.BDFB();
+            if (!NOlimit)
+            {
+                NOlimit = DemClkFun.DEMOcounter();
+                Act = true;
+            }
         }
 
         private void Clik_Click(object sender, EventArgs e)
@@ -30,13 +34,21 @@ namespace DEMOclicker
         private void Form1_Load(object sender, EventArgs e)
         {
             clik.Enabled = NOlimit;
-            textBox1.Text = MacAddress;
+            actBtn.Enabled = !NOlimit;
         }
 
         private void actBtn_Click(object sender, EventArgs e)
         {
-            activation newForm = new activation();
-            newForm.Show();
+            if (NOlimit)
+            {
+                clik.Enabled = true;
+                actBtn.Enabled = false;
+            }
+            else
+            {
+                activation newForm = new activation();
+                newForm.Show();
+            }
         }
     }
 }

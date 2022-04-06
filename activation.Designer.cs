@@ -47,7 +47,7 @@ namespace DEMOclicker
             // key1
             // 
             this.key1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.key1.Location = new System.Drawing.Point(15, 26);
+            this.key1.Location = new System.Drawing.Point(15, 27);
             this.key1.MaxLength = 14;
             this.key1.Name = "key1";
             this.key1.Size = new System.Drawing.Size(196, 20);
@@ -78,6 +78,7 @@ namespace DEMOclicker
             this.KeyPreview = true;
             this.Name = "activation";
             this.Text = "Активация";
+            this.Load += new System.EventHandler(this.activation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

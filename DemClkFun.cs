@@ -9,6 +9,10 @@ using System.Management;
 
 namespace DEMOclicker
 {
+    internal class Data
+    {
+        public string MacAddress { get; set; }
+    }
     class DemClkFun
     {
         public static bool DEMOcounter(int limit = 5)//Ведет счетчек запусков. Возвращает ложь, если лимит исчерпан

@@ -97,7 +97,7 @@ namespace DEMOclicker
 
         #endregion
 
-        private System.Windows.Forms.Button clik;
+        public System.Windows.Forms.Button clik;
         private System.Windows.Forms.Label score;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button actBtn;
