@@ -34,7 +34,7 @@ namespace DEMOclicker
         private void Form1_Load(object sender, EventArgs e)
         {
             clik.Enabled = NOlimit;
-            actBtn.Enabled = !NOlimit;
+            //actBtn.Enabled = !NOlimit;
         }
 
         private void actBtn_Click(object sender, EventArgs e)
