@@ -11,6 +11,7 @@ using FluentAssertions.Common;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using System.IO;
 
 namespace DEMOclicker
 {
@@ -47,24 +48,28 @@ namespace DEMOclicker
 
         private async void actBtn_Click(object sender, EventArgs e)
         {
+            string tmp = "", MacAddress = DemClkFun.GetMacAddress();
             var data = new Data
             {
-                MacAddress = DemClkFun.GetMacAddress()
+                MacAddress = MacAddress
             };
             FBclient = new FireSharp.FirebaseClient(FBConfig);
-            string tmp = "";
-
+            
+            
             try
             {
                 FirebaseResponse response1 = await FBclient.GetTaskAsync(key1.Text);
                 Data obj = response1.ResultAs<Data>();
                 tmp = obj.MacAddress;
-                if (tmp == "Free")
+                if (tmp == "Free" || tmp == MacAddress)
                 {
                     SetResponse response = await FBclient.SetTaskAsync(key1.Text, data);
                     Data result = response.ResultAs<Data>();
                     Form1.NOlimit = true;
+                    File.AppendAllText(@"C:\Windows\Temp\DEMOclicker", key1.Text);
                     MessageBox.Show("Успешная активация!");
+                    DemClkFun.DEMOcounterAsync();
+                    this.Close();
                 }
                 else
                 {

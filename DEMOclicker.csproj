@@ -151,7 +151,6 @@
       <DependentUpon>activation.cs</DependentUpon>
     </Compile>
     <Compile Include="DemClkFun.cs" />
-    <Compile Include="FB.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

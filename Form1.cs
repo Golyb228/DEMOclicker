@@ -14,16 +14,10 @@ namespace DEMOclicker
     public partial class Form1 : Form
     {
         public static bool NOlimit = false;
-        private static bool Act = false;
+        public static bool BtnAct = true;
         public Form1()
         {
             InitializeComponent();
-            //FB.BDFB();
-            if (!NOlimit)
-            {
-                NOlimit = DemClkFun.DEMOcounter();
-                Act = true;
-            }
         }
 
         private void Clik_Click(object sender, EventArgs e)
@@ -33,21 +27,22 @@ namespace DEMOclicker
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            NOlimit = DemClkFun.DEMOcounterAsync().Result;
             clik.Enabled = NOlimit;
-            //actBtn.Enabled = !NOlimit;
+            actBtn.Visible = BtnAct;
         }
 
         private void actBtn_Click(object sender, EventArgs e)
         {
-            if (NOlimit)
-            {
-                clik.Enabled = true;
-                actBtn.Enabled = false;
-            }
-            else
+            if (BtnAct)
             {
                 activation newForm = new activation();
                 newForm.Show();
+            }
+            else 
+            {
+                clik.Enabled = NOlimit;
+                actBtn.Visible = BtnAct;
             }
         }
     }
