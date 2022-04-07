@@ -29,7 +29,6 @@ namespace DEMOclicker
         public activation()
         {
             InitializeComponent();
-
         }
 
         private void key1_TextChanged(object sender, EventArgs e)
